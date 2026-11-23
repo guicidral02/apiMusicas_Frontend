@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - API Músicas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <h1>Acervo de Músicas</h1>
+      <div class="topbar-actions">
+        <span class="badge">Autenticado</span>
+        <button type="button" id="btnLogout" class="btn-outline">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="dashFeedback" class="feedback" role="alert"></div>
+
+    <section class="grid-two">
+      <article class="panel">
+        <h2>Adicionar música</h2>
+        <form id="addMusicForm">
+          <div class="input-group">
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" placeholder="Ex.: Lugar Secreto" required>
+          </div>
+
+          <div class="input-group">
+            <label for="artista">Artista</label>
+            <input type="text" id="artista" placeholder="Ex.: Gabriela Rocha" required>
+          </div>
+
+          <div class="row-two">
+            <div class="input-group">
+              <label for="album">Álbum</label>
+              <input type="text" id="album" placeholder="Ex.: Céu">
+            </div>
+
+            <div class="input-group">
+              <label for="ano">Ano</label>
+              <input type="number" id="ano" placeholder="2018" min="1900" max="2099">
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary" id="btnAddMusic">Salvar música</button>
+        </form>
+      </article>
+
+      <article class="panel">
+        <h2>Buscar no Deezer</h2>
+        <form id="deezerSearchForm" class="search-inline">
+          <input type="text" id="deezerQuery" placeholder="Digite artista ou música..." required>
+          <button type="submit" class="btn-secondary" id="btnDeezerSearch">Buscar</button>
+        </form>
+
+        <div id="deezerResults" class="deezer-list">
+          <p class="empty-hint">Pesquise uma faixa para salvar no acervo.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel catalog-section">
+      <div class="catalog-header">
+        <h2>Músicas cadastradas</h2>
+        <div class="filters">
+          <input type="search" id="searchInput" placeholder="Filtrar por título ou artista...">
+          <input type="number" id="yearFilter" placeholder="Ano" min="1900" max="2099">
+          <button type="button" id="btnClearFilters" class="btn-outline">Limpar</button>
+        </div>
+      </div>
+
+      <div id="musicList" class="music-grid">
+        <p class="empty-hint">Carregando músicas...</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

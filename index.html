@@ -3,29 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - API Músicas</title>
+  <title>Acesso - API Músicas</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="login-container">
-    <h2>Entrar na Conta</h2>
-    
-    <form id="loginForm">
+<body class="auth-body">
+  <main class="auth-card">
+    <div class="auth-tabs">
+      <button type="button" id="tabLogin" class="tab-btn active">Entrar</button>
+      <button type="button" id="tabRegister" class="tab-btn">Criar conta</button>
+    </div>
+
+    <form id="loginForm" class="auth-form active">
+      <h2>Entrar na Conta</h2>
+      <p class="subtitle">Acesse para gerenciar o acervo de músicas.</p>
+
       <div class="input-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" placeholder="seuemail@email.com" required>
+        <label for="loginEmail">E-mail</label>
+        <input type="email" id="loginEmail" placeholder="seuemail@email.com" required>
       </div>
 
       <div class="input-group">
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" placeholder="Sua senha" required>
+        <label for="loginSenha">Senha</label>
+        <input type="password" id="loginSenha" placeholder="Sua senha" required>
       </div>
 
-      <button type="submit" id="btnSubmit">Entrar</button>
+      <button type="submit" class="btn-primary" id="btnLogin">Entrar</button>
     </form>
 
-    <div id="mensagem" class="mensagem"></div>
-  </div>
+    <form id="registerForm" class="auth-form">
+      <h2>Criar nova conta</h2>
+      <p class="subtitle">Cadastre-se para adicionar e salvar músicas.</p>
+
+      <div class="input-group">
+        <label for="regNome">Nome</label>
+        <input type="text" id="regNome" placeholder="Seu nome" required>
+      </div>
+
+      <div class="input-group">
+        <label for="regEmail">E-mail</label>
+        <input type="email" id="regEmail" placeholder="seuemail@email.com" required>
+      </div>
+
+      <div class="input-group">
+        <label for="regSenha">Senha</label>
+        <input type="password" id="regSenha" placeholder="Crie uma senha" required>
+      </div>
+
+      <button type="submit" class="btn-primary" id="btnRegister">Cadastrar</button>
+    </form>
+
+    <div id="feedback" class="feedback" role="alert"></div>
+  </main>
 
   <script src="script.js"></script>
 </body>
